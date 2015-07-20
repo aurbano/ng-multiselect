@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Angular Multiselect by aurbano</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Angular Multiselect</h1>
+      <h2 class="project-tagline">Angular directive for multiselect elements with a nice UX</h2>
+      <a href="https://github.com/aurbano/ng-multiselect" class="btn">View on GitHub</a>
+      <a href="https://github.com/aurbano/ng-multiselect/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/aurbano/ng-multiselect/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="angular-multiselect" class="anchor" href="#angular-multiselect" aria-hidden="true"><span class="octicon octicon-link"></span></a>Angular multiselect</h1>
+
+<p>Angular directive for multiselect elements with a nice UX.</p>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started</h2>
+
+<ol>
+<li>
+<p>Download <a href="https://github.com/aurbano/ng-multiselect/blob/master/dist/ng-multiselect.js">ng-multiselect.js</a> and <a href="https://github.com/aurbano/ng-multiselect/blob/master/dist/ng-multiselect.css">ng-multiselect.css</a> and add to your project. Or get automatically:</p>
+
+<div class="highlight highlight-bash"><pre>bower install ng-multiselect</pre></div>
+</li>
+<li>
+<p>Add the module to the app:</p>
+
+<div class="highlight highlight-js"><pre>angular.module(<span class="pl-s"><span class="pl-pds">'</span>myApp<span class="pl-pds">'</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>aurbano.multiselect<span class="pl-pds">'</span></span>])</pre></div>
+</li>
+<li>Profit!</li>
+</ol>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Add the element in the view:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">multiselect</span> <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Select users...<span class="pl-pds">"</span></span>
+             <span class="pl-e">ms-model</span>=<span class="pl-s"><span class="pl-pds">"</span>multiselect.selected<span class="pl-pds">"</span></span>
+             <span class="pl-e">ms-config</span>=<span class="pl-s"><span class="pl-pds">"</span>multiselect.config<span class="pl-pds">"</span></span>
+             <span class="pl-e">ms-options</span>=<span class="pl-s"><span class="pl-pds">"</span>multiselect.options<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">multiselect</span>&gt;</pre></div>
+
+<p>The parameters are:</p>
+
+<ul>
+<li>
+<code>ms-model</code>: The model where the selection will be stored.</li>
+<li>
+<code>ms-config</code>: Configuration object to customize the behavior (see below).</li>
+<li>
+<code>ms-options</code>: Array with options to offer.</li>
+</ul>
+
+<h3>
+<a id="customization" class="anchor" href="#customization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customization</h3>
+
+<p>Using the <code>ms-config</code> you can pass an object with the following configuration options:</p>
+
+<ul>
+<li>
+<strong><code>hideOnBlur</code></strong>: Only show the dropdown when the input is focused</li>
+<li>
+<strong><code>showSelected</code></strong>: Show the elements that have already been selected</li>
+<li>
+<strong><code>itemTemplate</code></strong>: function that takes each element from ms-options and returns what should be displayed on the list. It defaults to the element itself. Use sce.trustAsHtml if you want to add custom HTML here.</li>
+<li>
+<strong><code>labelTemplate</code></strong>: function that takes each selected element, and displays it on the label list. This goes inside the <code>&lt;span class="label"&gt;&lt;/span&gt;</code>. Use <code>$sce.trustAsHtml()</code> if you want to add custom HTML here.</li>
+</ul>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
+
+<h3>
+<a id="dynamic-data" class="anchor" href="#dynamic-data" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://embed.plnkr.co/TrwUBp1odAYmBPRarK5k/">Dynamic data</a>
+</h3>
+
+
+
+<hr>
+
+<p><em>By <a href="http://urbanoalvarez.es">Alejandro U. Alvarez</a> - MIT License</em></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/aurbano/ng-multiselect">Angular Multiselect</a> is maintained by <a href="https://github.com/aurbano">aurbano</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-3181088-16");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
+
