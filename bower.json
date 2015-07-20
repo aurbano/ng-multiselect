@@ -1,0 +1,27 @@
+{
+  "name": "ng-multiselect",
+  "version": "1.0.0",
+  "homepage": "https://github.com/aurbano/ng-multiselect",
+  "authors": [
+    "Alejandro U. Alvarez <aluralma@gmail.com>"
+  ],
+  "description": "Angular directive for multiselect elements with a nice UX",
+  "main": ["dist/ng-multiselect.js", "dist/ng-multiselect.css"],
+  "keywords": [
+    "directive",
+    "angular",
+    "multiselect",
+    "multiple",
+    "selection",
+    "forms",
+    "bootstrap"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
