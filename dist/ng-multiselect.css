@@ -4,26 +4,18 @@
     display: block;
     float:none;
     max-height:300px;
-}
-.multiselect .label{
-    margin-right:5px;
-    margin-bottom:5px;
-}
-.multiselect-labels{
-    margin-bottom: 5px;
+    overflow:auto;
 }
 .multiselect-labels a .fa{
-    color: inherit;
+    color: #ccc;
 }
 .multiselect-labels a .fa:hover{
-    color: #006A98;
+    color: #fff;
 }
 .multiselect-labels .label{
     margin-right: 5px;
     margin-bottom: 5px;
     display: inline-block;
-}
-.multiselect-labels-lg .label{
     padding: 4px 6px;
 }
 .multiselect .dropdown-menu > li > a{
