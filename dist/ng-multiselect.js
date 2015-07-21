@@ -174,8 +174,9 @@ angular.module('aurbano.multiselect', []).directive('multiselect', function() {
                     '           </a>' +
                     '       </span>'+
                     '   </div>' +
-                    '   <input placeholder="'+attrs.placeholder+'" type="text" class="form-control" ng-model="multiselect.filter" ng-focus="multiselect.focusFilter()" ng-blur="multiselect.blurFilter()" />' +
-                    '   <ul class="dropdown-menu" role="menu" ng-show="multiselect.displayDropdown">' +
+                    '   <input ng-show="multiselect.options.length > 0" placeholder="'+attrs.placeholder+'" type="text" class="form-control" ng-model="multiselect.filter" ng-focus="multiselect.focusFilter()" ng-blur="multiselect.blurFilter()" />' +
+                    '   <div ng-show="msModel.length < multiselect.options.length && multiselect.options.length === 0 && !multiselect.options.$resolved"><em>Loading...</em></div>'+
+                    '   <ul class="dropdown-menu" role="menu" ng-show="multiselect.displayDropdown && multiselect.options.length > 0">' +
                     '       <li ng-repeat="element in multiselect.filtered = (multiselect.options | filter:multiselect.filter) track by $index" role="presentation" ng-class="{active: $index == multiselect.currentElement}">' +
                     '           <a href="" role="menuitem" ng-click="$event.preventDefault(); multiselect.selectElement($index)" ng-bind-html="config.itemTemplate(element)"></a>' +
                     '       </li>' +
