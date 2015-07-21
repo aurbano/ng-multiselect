@@ -18,6 +18,7 @@
  *                       <span class="label"></span>. Use sce.trustAsHtml if you want to add custom HTML here.
  *
  * @author Alejandro U. Alvarez
+ * @homepage https://github.com/aurbano/ng-multiselect
  */
 angular.module('aurbano.multiselect', []).directive('multiselect', function() {
     return {
