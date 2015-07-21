@@ -41,8 +41,13 @@ Using the `ms-config` you can pass an object with the following configuration op
 * **`labelTemplate`**: function that takes each selected element, and displays it on the label list. This goes inside the `<span class="label"></span>`. Use `$sce.trustAsHtml()` if you want to add custom HTML here.
 
 ## Demo
+### [Custom Formatting](http://embed.plnkr.co/s2GFxXBXf1vderC0XCvP/)
+
+<iframe src="http://embed.plnkr.co/s2GFxXBXf1vderC0XCvP/" height="480" width="100%" style="border:solid 1px #efefef; box-shadow:rgba(0,0,0,0.1) 0 0 20px"></iframe>
+
 ### [Dynamic data](http://embed.plnkr.co/TrwUBp1odAYmBPRarK5k/)
-<iframe src="http://embed.plnkr.co/TrwUBp1odAYmBPRarK5k/" height="400" width="100%" style="border:solid 1px #efefef; box-shadow:rgba(0,0,0,0.1) 0 0 20px"></iframe>
+
+<iframe src="http://embed.plnkr.co/TrwUBp1odAYmBPRarK5k/" height="480" width="100%" style="border:solid 1px #efefef; box-shadow:rgba(0,0,0,0.1) 0 0 20px"></iframe>
 
 -----------
 *By [Alejandro U. Alvarez](http://urbanoalvarez.es) - MIT License*
