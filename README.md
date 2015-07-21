@@ -1,4 +1,4 @@
-# Angular multiselect
+# Angular Multiselect
 Angular directive for multiselect elements with a nice UX.
 
 ## Getting started
