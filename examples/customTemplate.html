@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link data-require="bootstrap@*" data-semver="3.3.2" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link data-require="bootstrap@*" data-semver="3.3.2" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../dist/ng-multiselect.css">
+    <script data-require="jquery@2.1.3" data-semver="2.1.3" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script data-require="bootstrap@*" data-semver="3.3.2" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script data-require="angular.js@1.3.8" data-semver="1.3.8" src="https://code.angularjs.org/1.3.8/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-sanitize.js"></script>
+    <script src="../dist/ng-multiselect.js"></script>
+    <style>
+    .user {
+        color: #0074D9;
+    }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <div class="container" ng-controller="DemoController">
+        <h3>Custom Template Demo</h3>
+        <script type="text/ng-template" id="custom-template.html">
+            <div class="multiselect">
+                <div class="multiselect-labels">
+                  <span class="label label-primary multiselect-labels-lg" ng-repeat="element in msModel">
+                    <b>CUSTOM: </b>
+                    <span ng-bind-html="config.labelTemplate(element)"></span>
+                    <a href="" ng-click="$event.preventDefault(); multiselect.deleteSelected($index)" title="Remove element"> <i class="fa fa-times"></i> </a>
+                  </span>
+                </div>
+                <input ng-show="multiselect.options.length > 0" placeholder="Select users..." type="text" class="form-control" ng-model="multiselect.filter" ng-focus="multiselect.focusFilter()" ng-blur="multiselect.blurFilter()" />
+                <div ng-show="msModel.length < multiselect.options.length && multiselect.options.length === 0 && !multiselect.options.$resolved"><em>Loading...</em></div>
+                <ul class="dropdown-menu" role="menu" ng-show="multiselect.displayDropdown && multiselect.options.length > 0">
+                    <li ng-repeat="element in multiselect.filtered = (multiselect.options | filter:multiselect.filter) track by $index" role="presentation" ng-class="{active: $index == multiselect.currentElement}">
+                        <a href="" role="menuitem" ng-click="$event.preventDefault(); multiselect.selectElement($index)" ng-bind-html="config.itemTemplate(element)"></a>
+                    </li>
+                </ul>
+            </div>
+        </script>
+        <multiselect placeholder="Select users..." ms-model="multiselect.selected" ms-config="multiselect.config" ms-options="multiselect.options" template-url="custom-template.html">
+        </multiselect>
+        <hr>
+        <small class="text-muted">
+        <p><b>Selected users:</b> {{displayUsers()}}</p>
+        <p class="text-center">
+          <a href="https://github.com/aurbano/ng-multiselect">ng-multiselect</a> &bull;
+          Demo by <a href="http://urbanoalvarez.es">Alejandro U. Alvarez</a> &bull;
+          <em>Test data from jsonplaceholder.typicode.com</em>
+        </p>
+      </small>
+    </div>
+    <script type="text/javascript">
+    angular.module('myApp', ['aurbano.multiselect'])
+        .controller('DemoController', ['$scope', '$http', '$sce',
+            function($scope, $http, $sce) {
+
+                $scope.multiselect = {
+                    selected: [],
+                    options: [],
+                    config: {
+                        hideOnBlur: false,
+                        showSelected: false,
+                        itemTemplate: function(item) {
+                            return $sce.trustAsHtml(item.name + ' (' + item.email + ')');
+                        },
+                        labelTemplate: function(item) {
+                            return $sce.trustAsHtml(item.name);
+                        }
+                    }
+                };
+
+                $scope.displayUsers = function() {
+                    return $scope.multiselect.selected.map(function(each) {
+                        return each.name;
+                    }).join(', ');
+                };
+
+                $http.get('http://jsonplaceholder.typicode.com/users')
+                    .success(function(data) {
+                        // Prepare the fake data
+                        $scope.multiselect.options = data.map(function(item) {
+                            return {
+                                name: item.name,
+                                email: item.email,
+                                id: item.id
+                            };
+                        });
+
+                    }).error(function(err) {
+                        console.error(err);
+                    });
+
+            }
+        ]);
+    </script>
+</body>
+
+</html>

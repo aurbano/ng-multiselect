@@ -201,7 +201,8 @@ angular.module('aurbano.multiselect', [])
             });
         },
         template: function(elem, attrs){
-          return attrs.templateUrl || '<div ng-include="\'ng-multiselect-view.html\'"></div>';
+          var url = attrs.templateUrl || 'ng-multiselect-view.html';
+          return '<div ng-include="\''+url+'\'"></div>';
         }
     };
 }]);
