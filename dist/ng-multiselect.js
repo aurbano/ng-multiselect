@@ -20,7 +20,10 @@
  * @author Alejandro U. Alvarez
  * @homepage https://github.com/aurbano/ng-multiselect
  */
-angular.module('aurbano.multiselect', []).directive('multiselect', function() {
+angular.module('aurbano.multiselect', [])
+  .directive('multiselect', ['$compile', '$templateCache', function($compile, $templateCache) {
+    'use strict';
+
     return {
         restrict: 'E',
         scope: {
@@ -29,7 +32,6 @@ angular.module('aurbano.multiselect', []).directive('multiselect', function() {
             msConfig: '=',
             msChange: '&'
         },
-        replace: true,
         controller: ['$scope',
             function($scope){
                 /* -------------------------------- *
@@ -133,6 +135,38 @@ angular.module('aurbano.multiselect', []).directive('multiselect', function() {
             }
         ],
         link: function(scope, element, attrs){
+            //element.html('<div ng-include="ng-multiselect-view.html"></div>');
+            if(!attrs.templateUrl){
+              var template = '<div class="multiselect">' +
+                             '    <div class="multiselect-labels">' +
+                             '         <span class="label label-default multiselect-labels-lg" ng-repeat="element in msModel">' +
+                             '             <span ng-bind-html="config.labelTemplate(element)"></span>' +
+                             '             <a href="" ng-click="$event.preventDefault(); multiselect.deleteSelected($index)" title="Remove element">' +
+                             '                 <i class="fa fa-times"></i>' +
+                             '             </a>' +
+                             '          </span>'+
+                             '    </div>' +
+                             '    <input ng-show="multiselect.options.length > 0" placeholder="'+attrs.placeholder+'" type="text" class="form-control" ng-model="multiselect.filter" ng-focus="multiselect.focusFilter()" ng-blur="multiselect.blurFilter()" />' +
+                             '    <div ng-show="msModel.length < multiselect.options.length && multiselect.options.length === 0 && !multiselect.options.$resolved"><em>Loading...</em></div>'+
+                             '    <ul class="dropdown-menu" role="menu" ng-show="multiselect.displayDropdown && multiselect.options.length > 0">' +
+                             '      <li ng-repeat="element in multiselect.filtered = (multiselect.options | filter:multiselect.filter) track by $index" role="presentation" ng-class="{active: $index == multiselect.currentElement}">' +
+                             '        <a href="" role="menuitem" ng-click="$event.preventDefault(); multiselect.selectElement($index)" ng-bind-html="config.itemTemplate(element)"></a>' +
+                             '      </li>' +
+                             '    </ul>' +
+                             '</div>';
+              var templateWrapped = '<script type="text/ng-template" id="ng-multiselect-view.html">' +
+                                      template +
+                                    '</script';
+              
+              $compile(templateWrapped)(scope);
+              element.after(templateWrapped);
+
+              $templateCache.put('ng-multiselect-view.html', template);
+            }
+
+            // Compile the container
+            //$compile(element)(scope);
+            
             //Pass the attributes to the template
             scope.attrs = attrs;
             element.on('keydown', function(e){
@@ -166,6 +200,8 @@ angular.module('aurbano.multiselect', []).directive('multiselect', function() {
                 }
             });
         },
-        templateUrl: '../views/ng-multiselect-view.html'
+        template: function(elem, attrs){
+          return attrs.templateUrl || '<div ng-include="\'ng-multiselect-view.html\'"></div>';
+        }
     };
-});
+}]);

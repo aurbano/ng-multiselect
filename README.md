@@ -1,11 +1,6 @@
 # Angular Multiselect
 Angular directive for multiselect elements with a nice UX.
 
-I forked this repository from [@AUrbano](https://github.com/aurbano)
-
-## Changes
-* HTML content has been move to a separated file, in order to make the code clean and easily maintainable
-
 
 ## Demos
 ### [Custom Formatting](http://embed.plnkr.co/fVLjq9/preview)
@@ -13,6 +8,10 @@ I forked this repository from [@AUrbano](https://github.com/aurbano)
 <iframe src="http://embed.plnkr.co/s2GFxXBXf1vderC0XCvP/" height="480" width="100%" style="border:solid 1px #efefef; box-shadow:rgba(0,0,0,0.1) 0 0 20px"></iframe>
 
 ### [Dynamic data](http://embed.plnkr.co/TrwUBp1odAYmBPRarK5k/)
+
+<iframe src="http://embed.plnkr.co/TrwUBp1odAYmBPRarK5k/" height="480" width="100%" style="border:solid 1px #efefef; box-shadow:rgba(0,0,0,0.1) 0 0 20px"></iframe>
+
+### [Custom Template](http://embed.plnkr.co/TrwUBp1odAYmBPRarK5k/)
 
 <iframe src="http://embed.plnkr.co/TrwUBp1odAYmBPRarK5k/" height="480" width="100%" style="border:solid 1px #efefef; box-shadow:rgba(0,0,0,0.1) 0 0 20px"></iframe>
 
@@ -46,6 +45,7 @@ The parameters are:
 * `ms-model`: The model where the selection will be stored.
 * `ms-config`: Configuration object to customize the behavior (see below).
 * `ms-options`: Array with options to offer.
+* `template-url`: [Optional] The URL of a valid Angular template. See [views/ng-multiselect-view.html](https://github.com/aurbano/ng-multiselect/blob/master/views/ng-multiselect-view.html) for the default one.
 
 ### Customization
 Using the `ms-config` you can pass an object with the following configuration options:
@@ -55,8 +55,10 @@ Using the `ms-config` you can pass an object with the following configuration op
 * **`itemTemplate`**: function that takes each element from ms-options and returns what should be displayed on the list. It defaults to the element itself. Use sce.trustAsHtml if you want to add custom HTML here.
 * **`labelTemplate`**: function that takes each selected element, and displays it on the label list. This goes inside the `<span class="label"></span>`. Use `$sce.trustAsHtml()` if you want to add custom HTML here.
 
+*__Note__: If you change the template using a custom template URL, these options might no longer work.*
+
 #### CSS
-Angular Multiselect plays nicely with Bootstrap. If you don't use bootstrap you might want to add CSS to fit the classes used, or modify the source to edit the template. Ideally the template would be dynamic, feel free to send a PR if you add that feature :)
+Angular Multiselect plays nicely with Bootstrap. If you don't use bootstrap you might want to add CSS to fit the classes used, or specify your own template URL with different ones.
 
 The HTML template used is this:
 
