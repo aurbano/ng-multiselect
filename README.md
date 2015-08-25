@@ -11,9 +11,9 @@ Angular directive for multiselect elements with a nice UX.
 
 <iframe src="http://embed.plnkr.co/TrwUBp1odAYmBPRarK5k/" height="480" width="100%" style="border:solid 1px #efefef; box-shadow:rgba(0,0,0,0.1) 0 0 20px"></iframe>
 
-### [Custom Template](http://embed.plnkr.co/TrwUBp1odAYmBPRarK5k/)
+### [Custom Template](http://embed.plnkr.co/M7lDVOa8bXfze8jalqfZ/)
 
-<iframe src="http://embed.plnkr.co/TrwUBp1odAYmBPRarK5k/" height="480" width="100%" style="border:solid 1px #efefef; box-shadow:rgba(0,0,0,0.1) 0 0 20px"></iframe>
+<iframe src="http://embed.plnkr.co/M7lDVOa8bXfze8jalqfZ/" height="480" width="100%" style="border:solid 1px #efefef; box-shadow:rgba(0,0,0,0.1) 0 0 20px"></iframe>
 
 ## Getting started
 
