@@ -133,6 +133,8 @@ angular.module('aurbano.multiselect', []).directive('multiselect', function() {
             }
         ],
         link: function(scope, element, attrs){
+            //Pass the attributes to the template
+            scope.attrs = attrs;
             element.on('keydown', function(e){
                 var code = e.keyCode || e.which;
                 switch(code){
@@ -164,25 +166,6 @@ angular.module('aurbano.multiselect', []).directive('multiselect', function() {
                 }
             });
         },
-        template: function(elem, attrs){
-            //var template = $(elem).find('template');
-            return  '<div class="multiselect">' +
-                    '   <div class="multiselect-labels">' +
-                    '       <span class="label label-default multiselect-labels-lg" ng-repeat="element in msModel">' +
-                    '           <span ng-bind-html="config.labelTemplate(element)"></span>' +
-                    '           <a href="" ng-click="$event.preventDefault(); multiselect.deleteSelected($index)" title="Remove element">' +
-                    '               <i class="fa fa-times"></i>' +
-                    '           </a>' +
-                    '       </span>'+
-                    '   </div>' +
-                    '   <input ng-show="multiselect.options.length > 0" placeholder="'+attrs.placeholder+'" type="text" class="form-control" ng-model="multiselect.filter" ng-focus="multiselect.focusFilter()" ng-blur="multiselect.blurFilter()" />' +
-                    '   <div ng-show="msModel.length < multiselect.options.length && multiselect.options.length === 0 && !multiselect.options.$resolved"><em>Loading...</em></div>'+
-                    '   <ul class="dropdown-menu" role="menu" ng-show="multiselect.displayDropdown && multiselect.options.length > 0">' +
-                    '       <li ng-repeat="element in multiselect.filtered = (multiselect.options | filter:multiselect.filter) track by $index" role="presentation" ng-class="{active: $index == multiselect.currentElement}">' +
-                    '           <a href="" role="menuitem" ng-click="$event.preventDefault(); multiselect.selectElement($index)" ng-bind-html="config.itemTemplate(element)"></a>' +
-                    '       </li>' +
-                    '   </ul>' +
-                    '</div>';
-        }
+        templateUrl: '../views/ng-multiselect-view.html'
     };
 });
