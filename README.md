@@ -3,7 +3,7 @@ Angular directive for multiselect elements with a nice UX.
 
 
 ## Demos
-### [Custom Formatting](http://embed.plnkr.co/fVLjq9/preview)
+### [Custom Formatting](http://embed.plnkr.co/s2GFxXBXf1vderC0XCvP)
 
 <iframe src="http://embed.plnkr.co/s2GFxXBXf1vderC0XCvP/" height="480" width="100%" style="border:solid 1px #efefef; box-shadow:rgba(0,0,0,0.1) 0 0 20px"></iframe>
 
