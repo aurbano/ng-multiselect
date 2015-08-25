@@ -1,8 +1,14 @@
 # Angular Multiselect
 Angular directive for multiselect elements with a nice UX.
 
+I forked this repository from [@AUrbano](https://github.com/aurbano)
+
+## Changes
+* HTML content has been move to a separated file, in order to make the code clean and easily maintainable
+
+
 ## Demos
-### [Custom Formatting](http://embed.plnkr.co/s2GFxXBXf1vderC0XCvP/)
+### [Custom Formatting](http://embed.plnkr.co/fVLjq9/preview)
 
 <iframe src="http://embed.plnkr.co/s2GFxXBXf1vderC0XCvP/" height="480" width="100%" style="border:solid 1px #efefef; box-shadow:rgba(0,0,0,0.1) 0 0 20px"></iframe>
 
